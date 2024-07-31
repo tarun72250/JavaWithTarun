@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import ddt rule of configuration
+search in google ddt configuration hibernate -->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+    <session-factory>
+        <!-- SQL Dialect - type of database -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+ 
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root@321</property>
+        
+        <!--  optionally specified  query generated hua h usko as a log message print krva dega console me 
+        internally they used PreparedStatement  interface -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+ 
+        <!-- Specifying Session Context 
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+ -->
+        <!-- Mapping With Model Class Containing Annotations -->
+        <mapping class="com.example.entity.Product" />
+        
+       <!--  <mapping resource="com/example/entity/Product.hbm.xml"></mapping> --> 
+         
+    </session-factory>
+</hibernate-configuration>

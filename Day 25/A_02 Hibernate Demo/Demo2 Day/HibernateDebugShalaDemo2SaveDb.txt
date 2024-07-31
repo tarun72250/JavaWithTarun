@@ -1,0 +1,88 @@
+HiberNateDebugShalaDemo2SaveEntitydb
+
+1.Create Maveen Project 
+	next
+	Catalog select - Internal
+	search - quick start 
+	next
+	Group-id islike package name com.tarun
+	Artifact id islike Project name
+	Package name same as Group id com.tarun
+	Finish 
+that take little bit time to download all dependencies from maven repository.
+ 
+2. We did not explicitely download the jar file of hibernate 
+	we said maven to download these all dependency from maven repo.
+
+	copy and paste the dependency of hibernate core and MySQL connector dependency download from google and paste in pom.xml. 
+	
+	right click on project
+	click maveen 
+	update project
+
+
+3.create database and table Product
+create database hibernate; 
+Create Table Product
+( pid int primary key,
+pname varchar(45),
+price float(10),
+qty float(10)
+);
+
+
+create packages undersrc/main/java 
+	com.tarun.entity
+		Product.java
+	com.tarun.test
+		SaveObjectTest.java
+	src/main/java
+		hibernate.cfg.xml
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------
+
+hibernate.cfg.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import ddt rule of configuration
+search in google ddt configuration hibernate -->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+    <session-factory>
+        <!-- SQL Dialect - type of database -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+ 
+        <!-- Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root@321</property>
+        
+        <!--  optionally specified  query generated hua h usko as a log message print krva dega console me 
+        internally they used PreparedStatement  interface -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+ 
+        <!-- Specifying Session Context 
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+ -->
+
+        <!-- Mapping With Model Class Containing Annotations -->
+        <mapping class="com.example.entity.Product" />
+        
+       <!--  <mapping resource="com/example/entity/Product.hbm.xml"></mapping> --> 
+         
+    </session-factory>
+</hibernate-configuration>

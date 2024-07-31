@@ -1,0 +1,12 @@
+1.create normal Java project
+	provide project name 
+	
+2.create package name com.beans and com.test 
+	under this project create class UserBean
+	//member variable
+	//getter and setter method
+	
+3.create testDemo class under com.test package
+	create UserBeam object
+	set values
+	and get that values 
