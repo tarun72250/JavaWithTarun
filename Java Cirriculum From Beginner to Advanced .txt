@@ -1,0 +1,62 @@
+#Java Basic Topic-20
+days-20 days complete,(20hours)
+Lab-extra 20 hours
+
+1.Introduction to JAVA
+2.Java Programming Basics.
+3.Language basics.
+4.Fundamentals of OOPs.
+5.OOp in Java -II
+6.OOp in Java -III
+7.Strings in Java
+8.Packages 
+9.Introduction to Eclipse
+10.Inheritance
+11.Polymorphism.
+12.Abstract class
+13.Interface.
+14.Exception Handling -I
+15.Exception Handling -II
+16.Stream and File IO-I
+17.Stream and File IO-II
+18.Multithreading -I
+19.Multithreading -II
+20.Reflection
+
+#Java Advanced Topic-10
+days-26 days complete,(26hours)
+Lab-extra half an hour
+1.Collection Framework-I
+2.Collection Framework-II
+3.Collection Framework-III
+4.JDBC-I
+5.JDBC-II
+6.Servlet-I
+7.Servlet-II
+8.Servlet-III
+9.Servlet-IV
+10.JSP-I
+11.JSP-II
+12.JSP-III
+13.JSP-IV
+14.Maven Build tool
+15.Introduction to hibernate
+16.Using hibernate
+17.HQL and Hibernate queries.
+18.Hibernate mappings
+19.Advanced Hibernate
+20.Introduction to Spring and DI
+21.Applying DI
+22.Spring MVC
+23.Spring MVC with Database
+24.Spring AOP and Rest
+25.Introduction to Spring Boot
+26.Spring Boot Rest API
+
+
+
+
+
+
+Install java jdk:Set the path
+URL:-https://www.w3schools.com/java/java_getstarted.asp

@@ -1,0 +1,23 @@
+1.open chrome and hit URL :- https://dev.mysql.com/downloads/
+
+2.Click     Connector/J
+
+3.after select Platfrom Independent
+
+4.Download Platform Independent (Architecture Independent), ZIP Archive
+
+5.Click download 
+
+6.and then click No thanks, just start my download.
+
+open eclipse 
+
+create new java project
+Give Specified ProjectName
+click next
+Then click Libraries and then click Modulepath and Add External Jars....
+add specified folder then apply and close
+and finish.
+
+check it Refrenced Libraries.
+D:\DebugShala\DebugShala -Java Advanced\Refrences\mysql-connector-j-8.3.0\mysql-connector-j-8.3.0\mysql-connector-j-8.3.0.jar

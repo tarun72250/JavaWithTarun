@@ -1,0 +1,94 @@
+1. Read it carefully .
+
+Instructions:
+You have 2 hours to complete this test.
+
+Follow the problem statements carefully.
+Ensure to write clean, efficient, and well-documented code.
+Make use of proper exception handling and follow best practices.
+
+Problem Statements:
+
+1. Basic Java Concepts (20 minutes)
+Problem Statement:
+Write a Java program that reads a list of student names and scores from a file named students.txt. The file contains names and scores separated by a comma. Your task is to read the data, store it in an appropriate collection, and print out the average score of the students.
+
+Requirements:
+
+Use appropriate Java collections to store the data.
+Handle exceptions for file I/O operations.
+Implement a method public double calculateAverage(List<Student> students) that returns the average score.
+students.txt (Sample Content):
+
+Copy code
+John,85
+Jane,90
+Alex,78
+Emily,92
+-------------------------------------------------
+2. Object-Oriented Programming (30 minutes)
+
+Problem Statement:
+Create a simple library management system. The system should be able to add new books, lend books to users, and return books. Implement the following classes:
+
+Book:
+
+Attributes: id, title, author, isLent.
+Methods: Getters and setters, constructor.
+Library:
+
+Attributes: A collection of books.
+Methods:
+addBook(Book book): Adds a book to the library.
+lendBook(int bookId, String user): Lends a book to a user.
+returnBook(int bookId): Returns a book to the library.
+displayBooks(): Displays all books in the library.
+
+3. File I/O and Exception Handling (20 minutes)
+
+Problem Statement:
+Write a Java program to copy the contents of one text file to another. The program should handle possible exceptions such as file not found and IO exceptions.
+
+Requirements:
+
+Implement a method public void copyFile(String source, String destination).
+Ensure proper exception handling.
+---------------------------------------------------
+4. JDBC (30 minutes)
+
+Problem Statement:
+Create a Java application to manage a simple employee database using JDBC. The database has a table named employees with columns id, name, position, and salary. Implement the following functionalities:
+
+Connect to the MySQL database.
+Add a new employee.
+Update the salary of an existing employee.
+Delete an employee record.
+Retrieve and display all employee records.
+Requirements:
+
+Use prepared statements for database operations.
+Implement methods addEmployee, updateSalary, deleteEmployee, and getAllEmployees.
+----------------------------------------------------
+5. Servlets and JSP (30 minutes)
+
+Problem Statement:
+Create a simple web application using Servlets and JSP. The application should have the following functionalities:
+
+Login Page: A JSP page where users can enter their username and password.
+Servlet: A Servlet that handles the login form submission. If the username is "admin" and the password is "password", redirect to a welcome page. Otherwise, display an error message.
+Welcome Page: A JSP page that welcomes the user.
+Requirements:
+
+Use MVC architecture.
+Handle form submission and redirection using servlets.
+Additional Instructions:
+Ensure to use proper commenting and code documentation.
+Make sure to handle possible exceptions and edge cases.
+If time permits, write unit tests for your methods.
+
+Submission:
+Compress all your code files into a single ZIP file.
+Name the ZIP file as Java_Machine_Test_YourName.zip.
+Submit the ZIP file before the end of the allotted time.
+
+Good luck!
