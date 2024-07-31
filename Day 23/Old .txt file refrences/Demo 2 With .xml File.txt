@@ -1,0 +1,51 @@
+1.Now again Create Dynamic Web Project
+This time check web.xml deployment discripter file
+open project heirarchy 
+open main
+open webapp
+open WEB-INF
+web.xml
+//there are some predefined tags are there 
+so remove <display-name>
+or <welcome-file-list>
+//now close the file
+
+2.Now we create servlet class
+click Java Resources 
+src/main/java
+right click create one Servlet class
+give package name myServlets
+extends HttpServlet
+override doGet()
+right click on project and run on server
+//error :- The selection is not within a valid module
+
+3.project right click 
+properties right click
+Projects facets
+Dynamic Web Project 5.0 click 
+apply or apply and close 
+again right click on project 
+run on server 
+select server and finish
+//error:- HTTP Status 404 – Not Found
+
+4.Why error seen bcoz we cannot configure request
+open web.xml
+<servlet>
+	<servlet-name>myServlet </servlet-name>
+	<servlet-class>myServlets.LoginCheckServlets </servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>myServlet </servlet-name>
+	<url-pattern> </url-pattern>
+</servlet-mapping>
+
+5.again right click on project run as run on server 
+select project 
+edit url  add /aaa   -    http://localhost:8080/Day_26_SecondServletDemo2WithXml/aaa
+check console they print output in console
+
+6. if u want to write in chrome page 
+PrintWritter out = resp.getWritter();
+out.print("<h1>Hello</h1>");

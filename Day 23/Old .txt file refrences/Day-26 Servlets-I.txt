@@ -1,0 +1,128 @@
+26.Servlet-I
+
+What will be covered in this chapter :-
+What is servlet
+Need of servlets
+Dynamic web applications
+Web servers
+First simple servlet
+Web application structure
+Deployment of web application
+What happens after hitting URL in browser
+Servlet life cycle
+Servlet API
+
+What is servlet
+Servlet is typically a java class
+The main functionality of servlet is to generate dynamic content as a response to client's requests. This content is mainly in the form of HTML.
+Servlet runs in hosting environment given by web server becuase servlets are deployed in web server
+Life cycle of servlets is controlled by web server.
+
+Need of servlets
+Shortly after the Web began to be used for delivering services, service providers recognized the need for dynamic content.
+Applots, one of the earliest attempts toward this goal of delivering dynamic content, focused on using the client platform to deliver dynamic user experiences.
+Before Servlet, CGI (Common Gateway Interface) scripting language was common as a server-side programming language which was used to generate dynamic content on the server side. However, there were many disadvantages to this technology including platform dependence.
+To address these limitations, Java Servlet technology was created as a portable way to provide dynamic, user-oriented content.
+
+Dynamic web applications
+A web application can be described as collection of web pages (e.g. a website) and when we call it dynamic, it simply means that the web pages are not same for all the users, web pages would be generated on server side based on the request made by client(user's browser).
+Dynamic web pages are generated on the server side based on the user's input and then sent back from server to client as in the form of response
+
+image:-
+
+Web servers
+Web pages are a collection of data, including images, text files, hyperlinks, database files etc., all located on some computer which is called web server.
+The primary objective of any web server is to collect, process and provide web pages to the users as per requests.
+This intercommunication of a web server with a web browser is done with the help of a protocol named HTTP (Hypertext Transfer Protocol).
+Web servers can serve static as well as dynamic contents. Web Servers also assists in emailing services and storing files. Therefore it also uses SMTP (Simple Mail Transfer Protocol) and FTP (File Transfer Protocol) protocols to support the respective services.
+The hardware of the web servers are connected to the Internet that manages the data exchange facility within different connected devices. In contrast, the software of web server software is responsible for controlling how a user accesses delivered files.
+
+image:-
+
+Demo Assignement:-
+
+First simple servlet
+Note:
+Each servlet class should directly or indirectly implement Servlet interface. Here servlet class is extending from HttpServlet which implments Servlet interface.
+Servlet related classes and interface imported from package javax.servlet and javax.servlet.http
+Servlet class provides service methods in the form of doGet() and doPost() which are overridden to generate dynamic HTML.
+These service methods provide request and response objects.
+Request object can be used for getting more information about
+request like request method, request paramters etc.
+Response object is used for opening the writing stream for stuffing HTML which finally gets displayed on the client's browser.
+
+image:-
+
+Web application structure
+Web Application Root Directory - This is the main or Root folder of web application. Usually name of this folder becomes your web application context. For example, if our web application name is FirstWebApplication, then folder name will be
+FirstWebApplication and web application will be accessible via http://localhost:8080/FirstWebApplication
+Static Files - All static files like HTML, css,javascript will be placed directly under web application root directory. These file can be further divided into subfolders as per need. If we want to make these files secure, we need to place these files under WEB-INF directory.
+META-INF/MAINFEST.MF- This is the manifest file. This is required when the application is deployed in the form of archieve (like war)
+Web application structure
+WEB-INF-This is the special directory under web application root directory. This is special because this is secured folder and files available within this folder will not be accessible to client directly. Which means say if this directory has one file "index.html" then this file cannot be accessed directly via http://localhost:8080/FirstWebApplication/index.html
+WEB-INF/lib- All the required jar files or third party jar files will be placed inside this directory.
+WEB-INF/classes- All the java code including servlets for the web application will go inside classes folder. We can also put our own classes into a JAR file, and place it here, rather than putting those classes in the classes directory.
+web.xml - web.xml resides under WEB-INF folder and it is also known as deployment descriptor. All the configuration of web application like servlets configuration, filters configuration, welcome file list etc are configured in web.xml. We will discuss web.xml in detail.
+
+Deployment of web application
+Deploy a web application means to make it ready to be used by its clients
+This is achieved by structuring the files that constitute the web application in a certain standard way and by installing (usually, just moving) it in a certain location of the server.
+This location of the server is called deployment directory. This deployment directory will be differently named in different web servers.
+In apache tomcat this deplyment directory is called web-apps which hosts all the web application folders.
+Web application can even be hosted as in the form of web archieve(war) file.
+Eclipse environment creates the required directory structure as needed by web application when the type of the project is selected as dynamic web project.
+For this project, runtime environment has to be specified for the web server under which the web application is getting deployed so that it makes use of web libraries.
+For deployment and undeployment of web application, menu is provided in the server's view.
+Add and remove option from the server allows to select the web application to be deployed or undeployed.
+
+What happens after hitting URL in browser
+Client hits the URL in the browser
+Request is accepted by corrosponding web server.
+Web server checks the request URL and finds the appropriate resource for serving the response.
+In case of servlets, request url will be compared with the value in @WebServlet annotation written above the servlet class. This way web server understands which servlet should be used to generate response.
+If the servlet class is not loaded in the memory, it gets loaded.
+Servlet gets instantiated(object creation).
+Init method of servlet gets called for initialization of resources needed by the servlet.
+Appropriate service method gets called based on the request method (doGet() or doPost() etc) by sending new request and response objects for every request.
+For subsequent requests by client, only correct service method gets called with new request and response objects.
+
+image:-
+
+Servlet life cycle
+Servlet class is loaded
+The classloader is responsible to load the servlet class. The servlet class is loaded when the first request for the servlet is received by the web container.
+Servlet instance is created
+The web container creates the instance of a servlet after loading the servlet class. The servlet instance is created only once in the servlet life cycle.
+init method is invoked
+The web container calls the init method only once after creating the servlet instance. The init method is used to initialize the servlet. It is the life cycle method of the javax.servlet.Servlet interface. Syntax of the init method is given below:
+public void init(ServletConfig config) throws ServletException.
+
+Servlet life cycle
+service method is invoked
+The web container calls the service method each time when request for the servlet is received. If servlet is not initialized, it follows the first three steps as described above then calls the service method. If servlet is initialized, it calls the service method. Notice that servlet is initialized only once. The syntax of the service method of the Servlet interface is given below:
+public void service (ServletRequest request, ServletResponse response) throws ServletException, IOException
+destroy method is invoked
+The web container calls the destroy method before removing the servlet instance from the service. It gives the servlet an opportunity to clean up any resource for example memory, thread etc. The syntax of the destroy method of the Servlet interface is given below:
+public void destroy()
+
+image:-
+
+Servlet API is divided into 2 major packages javax.servlet and javax.servlet.http.
+javax.servlet package contains a number of classes and interfaces
+that define the agreement between the servlet class and the run-
+time environment provided an instance of the servlet class by a
+conforming servlet container.
+javax.servlet.http.* package contains a number of classes and
+interfaces that define the agreement between the servlet class under HTTP protocol
+
+image:-
+
+Servlet API is divided into 2 major packages javax.servlet and javax.servlet.http.
+javax.servlet package contains a number of classes and interfaces
+that define the agreement between the servlet class and the run-
+time environment provided an instance of the servlet class by a
+conforming servlet container.
+javax.servlet.http.* package contains a number of classes and
+interfaces that define the agreement between the servlet class under HTTP protocol.
+
+Task image:-

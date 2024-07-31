@@ -1,0 +1,66 @@
+eclipse verion wikipedia check current stable version
+
+1.tomcat verion wikipedia 
+always download from official website.
+URL:- https://tomcat.apache.org/download-10.cgi
+Download this :- and click :- 64-bit Windows zip (pgp, sha512)
+
+
+Ater Download tomcat zip file extract in particular folder
+
+2.Set the runtime environment of eclipse:-
+Click Window
+Click Prefrences
+then find Server Option and click
+Runtime Environment choose
+now add path of your apche folder root bin folder where u extracted your folder
+finish apply and close.
+
+//So here we add tomcat runtime environment.
+
+3.create new server
+click Window 
+show view click 
+servers click
+Click this link to create new server
+select Tomcat v10.1 Server
+//so write now i am not creating any project just finish it.
+//so check one server folder is created
+
+//so right click on server and directly start it.
+//stop the server again right click and click stop server
+
+4.Now I will create and check one project deploy on server or not.
+Click File 
+Click New
+Click Dynamic Web Project
+Provide Name of that project.
+Day_26_FirstServletDemo
+Next
+uncheck web deployment discriptor file
+and finish.
+
+5.Open project
+click src
+click main
+click webapp folder 
+right click on webapp folder
+select html file
+//Write in html file
+then right click and run on server
+Might be u through error // The selection is not within a valid module.
+so run click on project
+select properties in bottom
+projects facets
+Dynamic web Module 5.0 verion select
+Now again apply and apply and close.
+
+6.Again right click on anywhere 
+run as click 
+run on server
+click Tomcat v10.1 Server at localhost
+click next
+and then click finish.
+//check msg which we have write on 
+
+//Error :- Starting Tomcat v10.1 Server at localhost has encountered a problem. issue :- https://www.youtube.com/watch?v=SEO22ifq9qE

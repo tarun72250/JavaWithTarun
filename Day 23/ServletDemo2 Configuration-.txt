@@ -1,0 +1,64 @@
+1.Now again Create Dynamic Web Project
+	- This time check web.xml deployment discripter file
+	- Open project heirarchy 
+	- Open main
+	- Open webapp
+	- Open WEB-INF we have web.xml
+//there are some predefined tags are there 
+	- So remove <display-name>
+	- Or only one tag <web-app></web-app>
+//now close the file
+
+
+2.Now we create servlet class
+	- Click Java Resources 
+	- src/main/java
+	- Right click create one Servlet class
+	- Give package name MyServlets and create one package named com
+	- extends HttpServlet import pckg from jakarta.servlet.Servlet
+	- override doGet()
+	- right click on project and run on server
+	- //error :- The selection is not within a valid module
+
+extends Servlet :- ctrl+ right click to see the details 
+
+
+
+
+3. Run Project
+	- properties right click
+	- Projects facets
+ 	- Dynamic Web Project 5.0 click 
+	- apply or apply and close 
+	- again right click on project 
+	- run on server 
+	- select server and finish
+	- //error:- HTTP Status 404 – Not Found 
+	- we didn't configure the request , ki how our request come
+
+
+4.Why error seen bcoz we cannot configure request , so we provide request mapping
+	- open web.xml
+<servlet>
+	<servlet-name>myServlet </servlet-name>
+	<servlet-class>com.tarun.MyServlet </servlet-class> // with proper package name 
+</servlet>
+<servlet-mapping>
+	<servlet-name>myServlet </servlet-name>
+	<url-pattern>/demo </url-pattern>
+</servlet-mapping>
+	
+	- http://localhost:8080/ServletDemo2/demo
+	- port no where server run / project name /url pattern name checked and then servlet class invoked and doGet() method request ho jygi.
+
+
+
+5.again right click on project run as run on server 
+select project 
+edit url  add /aaa   -    http://localhost:8080/Day_26_SecondServletDemo2WithXml/aaa
+check console they print output in console
+
+6. if u want to write in chrome page 
+PrintWritter out = resp.getWritter();
+out.print("<h1>Hello from DebugShala...!</h1>");
+

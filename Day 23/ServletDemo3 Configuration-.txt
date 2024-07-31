@@ -1,0 +1,106 @@
+//1. Create Dynamic Web Project
+Provide Your Project name 
+at last Generate web.xml deployement descriptor
+
+2. U had to add jar file of MySQL connector jar file.
+Right click on project
+click Build path 
+click configure build path
+click Libraries
+click Classpath 
+Add External JARs...
+Path of file :-
+D:\DebugShala\DebugShala -Java Advanced\Refrences\jar_files
+
+3.For Registration form using Bootstrap  download it 
+URL :- https://getbootstrap.com/docs/4.3/getting-started/download/
+Compiled CSS and JS
+Download 
+Extract jar file 
+under bootstrap-4.3.1 /under css copy css folder and paste in webapp folder in your project
+
+
+4.Add Tomcat must be configured with eclipse
+ 
+
+5. right click on webapp and create Home.html file inside webapp
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+//this is used for styling using css file
+<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body class="container-fluid card" style="width:40rem;">
+
+<h2 class="bg-danger text-white text-center">Book Registration </h2>
+<form action="register" method="post">
+	<table class="table table-hover">
+		<tr>
+			<td>Book Name</td>
+			<td><input type="text" name="bookName"></td>
+		</tr>
+		<tr>
+			<td>Book Edition</td>
+			<td><input type="text" name="bookEdition"></td>
+		</tr>
+		<tr>
+			<td>Book Price</td>
+			<td><input type="text" name="bookPrice"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="register"></td>
+			<td><input type="reset" value="cancel"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+For Perfect styling used bootstrap classes 
+
+6. 
+Inside src/main/java right click on that and create one package named 
+com.book.servlet
+right click on package create one servlet class 
+RegisterServlet.java and for super class 
+for HttpServlet 
+
+add tomcat servlet-api.jar file 
+right click on project 
+click on build path 
+click configure build path 
+click libraries
+Add external jars
+PATH :- D:\DebugShala\DebugShala -Java Advanced\Refrences\apache-tomcat-9.0.89-windows-x64\apache-tomcat-9.0.89\lib\servlet-api.jar
+apply and close
+sometime it is not come with server configuration that's why we do it.
+
+now Create RegisterServlet.java and add super class HttpServlet
+click ok and finish
+
+7. create doGet and doPost and ctrl + space click
+suggestion for creating that method
+seen in RegisterServlet.java class
+
+8. create database using MySQL workbench
+ create new database - BookDb
+create new table - BookData
+add column id as primary key and autoincremented key 
+, bookName as varchar(200) , bookEdition as varchar(10), bookPrice as varchar(30) ,
+click apply.
+
+9. create new servlet class BookListServlet.java extends HttpServlet
+
+10. at Home.html Add <a>Book List </a>
+and add @WebServlet("bookList") in BookListServlet.java
+or add RegisterServlet.java 
+		pw.println("<a href=\"bookList\">Book List </a>");
+at last after catch block
+
+
+11.
+
+

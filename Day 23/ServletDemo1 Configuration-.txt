@@ -1,0 +1,53 @@
+Steps to configure tomcat :-
+1. download tomcat 10.1 for windows.
+	URL :- https://tomcat.apache.org/download-10.cgi
+	
+2. Add Runtime Environment , Configure Tomcat 
+	- Click Windows
+	- Click preferences
+	- Click Server
+	- Click Runtime Environment
+	- Click Add 
+	- Click Apache
+	- Click Version 10.1
+	- Click Next 
+	- Provide Tomcat installation directory.
+	- Click Apply and close.
+
+3. We start the server 
+	- Click Windows
+	- Click Show View
+	- Click Servers
+	- then show the co server are available.
+	- Click on that line 
+	- Select Apache 10.1 Server
+	- Click next 
+	- Click Finish.
+then Server right click and Start the Server .
+then Server right click and Stop the Server .
+
+4. Create Dynamic Project Now I will create and check one project deploy on server or not.
+	- Click File 
+	- Click New
+	- Click Dynamic Web Project
+	- Provide Name of that project.
+	- Day_26_FirstServletDemo
+	- Next
+	- uncheck web deployment discriptor file and finish.
+
+5. create html page 
+	- Open project
+	- click src
+	- click main
+	- click webapp folder 
+	- right click on webapp folder
+	- select html file
+	- Write in html file
+	- then right click and run on server
+	- Might be u through error // The selection is not within a valid module.
+	- so run click on project
+	- select properties in bottom
+	- projects facets
+	- Dynamic web Module 5.0 verion select u had to select
+	- Now again apply and apply and close.
+
