@@ -1,0 +1,15 @@
+1. Write a program to add some Data according to their hashcode() generating by Student class where u maintain id , name , percent and city  , and implements Comparable interface and generate hashcode accordint to their city if city is equal , according to their name , or name also equals so on their id .
+
+2. Write a program to add some Data according to their insertion of order is preserved for Student class where u maintain id , name , percent and city and create object of LinkedHashSet.
+
+3. Write a programm to create class employee where u maintain id , name , sal , deptno or implements Comparable and override compareTo() method create object of TreeSet class.
+
+4. Write a programm to create class employee where u maintain id , name , sal , deptno or implements Comparater and override compare() method create object of TreeSet class.refer A_09_Employee.java class in treeSetDemo package.
+
+5. Using lambda function and anonyomous function Create Treeset object of type String and use for some sorting concept.
+
+
+
+
+
+

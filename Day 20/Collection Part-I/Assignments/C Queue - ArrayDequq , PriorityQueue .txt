@@ -1,0 +1,4 @@
+1. Create one object of ArrayDeque and use all methods which is override through Colection interface.
+
+2. Create one object of PriorityQueue and set their priority for employee class and use them to set their priority using Comparable interface or Comparater interface using.
+

@@ -1,0 +1,700 @@
+Chapter:-1
+Introduction and History to Java
+
+What will be covered in this chapter:-
+History of Java
+Java Features
+First Program
+Java Installation
+Java versions
+Difference between JDK, JRE and JVM
+
+Chapter:-2
+Introduction to Java
+
+What will be covered in this chapter:-
+First Program
+Setting the path
+Compilation and Execution
+Setting the classpath
+Difference between path and classpath.
+
+Chapter:-3
+Java Language Basics
+
+What will be covered in this chapter:-
+Data types
+Operators
+Conditional statements
+Iterative Statements
+Wrapper classes
+Use of Arrays
+class String
+
+Chapter:-4
+Introduction to Object Oriented Features.
+
+What will be covered in this chapter:-
+What is Procedural Programming
+Drawbacks of Procedural approach
+Need of Object Oriented approach
+What is Object
+State and behavior
+Pillars of OOP
+Major Concepts
+Minor concepts
+
+Chapter:-5
+OOP Implementation OOP in Java-II
+
+What will be covered in this chapter:-
+Writing class.
+Creating object
+Adding constructors
+this reference
+Method overloading
+Garbage Collector
+
+Chapter:-6
+OOP Implementation OOP in Java-III
+
+What will be covered in this chapter:-
+Reference equality
+Association - has-a relationship
+Concept of static
+Use of Array
+Wrapper classes
+
+Chapter:-7
+Strings In Java
+
+What will be covered in this chapter:-
+class String
+String immutability
+String pooling
+StringBuilder and StringBuffer as alternatives
+Imp methods in String class
+Common programming scenarios
+
+Chapter:-8
+Packages
+
+What will be covered in this chapter:-
+Need of Packages
+What is package
+Built in packages
+Creating package
+Compilation
+Using package
+. Setting classpath
+
+Chapter:-9
+Java Introduction to eclipse
+
+What will be covered in this chapter:-
+Need of IDE
+Benefits
+Installation
+Workspace
+Workbench
+Perspective
+Creating new Java Project
+Debugging in Java Using console.
+
+Chapter:-10
+Java Inheritance
+
+What will be covered in this chapter:-
+Inhertance basics
+extends keyword
+What is acquired by child
+Accessing super class members
+Constructors and Inheritance
+Example
+Method overriding
+Nested classes and Inheritance
+Final class and Inheritance
+
+Chapter:-11
+Java Polymorphism
+
+What will be covered in this chapter:-
+Polymorphism basics
+Static and dynamic binding
+class Object
+Methods of class Object
+Covariant return type
+Annotation - @override
+Polymorphic variables
+Runtime ploymorphism
+
+Chapter:-12
+Java Abstract class and Methods
+
+What will be covered in this chapter:-
+Need of abstract method
+Abstract classes
+Access specifiers
+final keyword.
+
+Need of abstract method
+Sometimes, we require just method declaration in super-classes. This can be achieve by specifying the abstract type modifier.
+This situation may be because class does not have complete information required for method implmentation. e.g. calSalary() method can not be implemented in super class Employee where in information about entire salary structure is not available.
+But method can not be removed totally from the class because it's existence is needed for achieving runtime polymorphism.
+So a method without a method body is required in the class.
+An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon).
+
+Here:-I basically need to calSalary()implement in Emp class because every employee has some salary , but their salary implementation according to their profession.
+public class Emp extends Person{
+	private int empid;//extra dm for EMp
+	private float salary;
+	
+	//default constructor
+	public Emp() {
+		super();
+	}
+	
+	//parametrized constructor
+	public Emp(String name, int dd, int mm, int yy, int empid, float salary) {
+		super(name, dd, mm, yy);
+		this.empid = empid;
+		this.salary = salary;
+	}
+
+	public void display()
+	{
+		//this.display();//infinite recursion
+		//but i want to call person display
+		super.display();
+		System.out.println("Empid :"+empid);
+		System.out.println("Salary :"+salary);
+	}
+	//@Override
+	public String toString() {
+		return "Emp [empid=" + empid + ", salary=" + salary+"Person Details :"+super.toString() ;
+		
+	}
+	
+	public double calSalary()
+	{
+		return salary;
+	}
+}
+
+Class SalesManager extends Employee where overridden ()- display(), toString(),calSalary():-
+public class SalesManager extends Emp
+{
+	private int target;
+	private double incentive;
+	
+	public SalesManager() {
+		super();
+	}
+	
+	public SalesManager(String name, int dd, int mm, int yy, int empid, float salary, int target, double incentive) {
+		super(name, dd, mm, yy, empid, salary);
+		this.target = target;
+		this.incentive = incentive;
+		}
+
+	public void display()
+	{
+		System.out.println("Calling From SalesManager");
+		super.display();//name bdate empid sallary 
+		System.out.println("Extra Target : "+target);
+		System.out.println("Extra Incentive : "+incentive);
+	}
+	
+	public String toString()
+	{
+		System.out.println("Calling From SalesManager");
+		return super.toString()+"\nExtra Target : "+target+"\nExtra Incentive : "+incentive;
+	}
+	
+	//normal calSalary()
+	public double calSalary() {
+		//directly salary accesible bcoz of protected in Emp() class
+		return super.calSalary() + (super.calSalary()*incentive/100);
+	}	
+}
+Class Programmer extends Employee where overridden ()- display(), toString(),calSalary():-
+public class Programmer extends Emp{
+
+	private int extraHours;
+	private int chargesPerHours;
+	
+	public Programmer()
+	{
+		
+	}
+	
+	public Programmer(String name ,int dd , int mm , int yy, int empid , float sallary, int extraHours, int chargesPerhours)
+	{
+		super(name,dd,mm,yy,empid,sallary);
+		this.extraHours=extraHours;
+		this.chargesPerHours=chargesPerhours;
+	}
+
+	public void display()
+	{
+		System.out.println("Calling From Programmer");
+		super.display();
+		System.out.println("Extra hours : "+extraHours);
+		System.out.println("Charges Per hours : "+chargesPerHours);
+		
+	}
+
+	@Override
+	public String toString() {
+		System.out.println("Calling From Programmer");
+		return super.toString() +"\nextraHours :" + extraHours + "\nchargesPerHours=" + chargesPerHours;
+	}
+
+	@Override//without protected normal calSalary()
+	public double calSalary()
+	{
+		double basic =super.calSalary();
+		return basic + (extraHours*chargesPerHours);
+	}
+}
+
+Class Admin extends Employee where overridden ()- display(), toString(),calSalary():-
+public class Admin extends Emp {
+	
+	private double bonus;
+
+	public Admin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Admin(String name, int dd, int mm, int yy, int empid, float salary,double bonus) {
+		super(name, dd, mm, yy, empid, salary);
+		// TODO Auto-generated constructor stub
+		this.bonus=bonus;
+	}
+
+	@Override
+	public void display() {
+		System.out.println("Calling From Admin");
+		super.display();
+		System.out.println("Bonus :"+bonus);
+	}
+
+	@Override
+	public String toString() {
+		System.out.println("Calling From Admin");
+		return super.toString()+"\nBonus : "+bonus;
+	}
+	
+	//without protected normal calSalary()
+	@Override
+	public double calSalary()
+	{
+		return super.calSalary()+bonus;
+	}	
+}
+
+Create class CalSallaryDemo for all employee.
+public class CalculateSalaryDemo {
+
+	public static void main(String[] args) {
+		Emp [] allemp;
+		allemp = new Emp[3];//creating array object 
+		allemp[0]=new SalesManager("Asfiya",11,11,1111,101,20000.0f,10000,1000.0f);
+		allemp[1]=new Programmer("Manas",12,12,1222,102,10000.0f,2,4);
+		allemp[2]=new Admin("Sumit",11,13,1444,103,50000.0f,2000.0f);
+		
+		
+		//for normal calSalary() calling
+		for(Emp e:allemp)//advanced for loop
+		{
+			System.out.println("Gross Salary : "+e.calSalary());
+		}
+	}
+
+}
+
+Protected:-In Java, the protected access specifier is used to define the accessibility of members (fields, methods, constructors) within a class and its subclasses.
+Here:-I need to use every where super.calSalary(); to access basic salary of employee class , but rather then these, we declared sallary as protected rather than private.
+public class Emp extends Person
+{
+	private int empid;//extra dm for EMp
+	protected float salary;
+	//display()
+	//toString()
+	//here can't use the calSalary() method because we use this method before code to access the sallary of Emp class , but in this code we decalre protected float salary which will accesible to all their class and their subclasses.
+}
+
+  public class SalesManager extends Emp
+{
+	//use protected 
+	public double calSalary()
+	{
+		//before this code we access calSalary method like this 
+		//return super.calSalary + ( super.calSalary * incentive /100);
+		//but after protected we directly access salary of Emp() class like this
+		return salary + ( salary * incentive /100);
+	}
+}    
+public class Programmer extends Emp
+{
+	//use protected
+	public double calSalary()
+	{
+		//before this code we access calSalary method like this 
+		//double basic =super.calSalary();
+		//return basic + (extraHours*chargesPerHours);
+		//but after protected we directly access salary of Emp() class like this
+		//directly salary accesible bcoz of protected in Emp() class
+		double basic = salary;
+		return basic + (chargesPerHours*extraHours);
+	}
+}   
+public class Admin extends Emp
+{
+	//@Override // we can't use this @Override keyword here because we can't override the calSalary() we directly acces these sallary because of protected dm access in subclasses.
+	public double calSalary()
+	{
+			// normal calSalary() for access the salary,
+			//return super.calSalary()+bonus;
+			//but after declare salary protected dm we access salary direclty like this
+			return salary+bonus;
+	}	
+}   
+public class CalculateSalaryDemo {
+
+	public static void main(String[] args) {
+		Emp [] allemp;
+		allemp = new Emp[3];//creating array object 
+		allemp[0]=new SalesManager("Asfiya",11,11,1111,101,20000.0f,10000,1000.0f);
+		allemp[1]=new Programmer("Manas",12,12,1222,102,10000.0f,2,4);
+		allemp[2]=new Admin("Sumit",11,13,1444,103,50000.0f,2000.0f);
+		
+		//for normal calSalary() calling
+		for(Emp e:allemp)//advanced for loop
+		{
+			System.out.println("Gross Salary : "+e.calSalary());
+		}
+	}
+}
+Here :- If i want to calculate totalsallary of all employee so we do like this
+public class CalculateSalaryDemo {
+
+	public static void main(String[] args) {
+		Emp [] allemp;
+		allemp = new Emp[3];//creating array object 
+		allemp[0]=new SalesManager("Asfiya",11,11,1111,101,20000.0f,10000,1000.0f);
+		allemp[1]=new Programmer("Manas",12,12,1222,102,10000.0f,2,4);
+		allemp[2]=new Admin("Sumit",11,13,1444,103,50000.0f,2000.0f);
+		
+		double total =0;
+		//for normal calSalary() calling
+		for(Emp e:allemp)//advanced for loop
+		{
+			total = total+e.calSalary();
+			System.out.println("Gross Salary : "+e.calSalary());
+		}
+		System.out.println("Total Salary of All Empolyee : "+total);
+
+	}
+
+}
+Need:-In super class(genralized) there are some methods which can not be defined but their existence of the method required for achieving run-time polymorphism.
+Image:-
+
+Abstract meaning :-Defination is missing or can be considered as incomplete.
+
+Rules for abstract in classes and methods:-
+If any method declared abstract in any class, class should be declared as abstract.
+Abstract classes cannot be instantiated means cannot create object of that abstract class, But Refrence can be created.
+Emp e;
+e = new Emp();//Emp is declared as abstract so we can't create object of Emp.
+e = new SalesManager();//is correct we create object of their subclasses .
+e1 = new Programmer();
+e2 = new Admin();
+Classes can be decalred as abstract without any abstract methodin it , but reverse is not possible.
+Abstract classes may contain abstract methods (without implementations) and concrete methods.
+concrete methods:- method which have override and defination with their own.
+When a class extend any abstract method compulsory to implement that abstract method , or optional to implement that concrete method.
+If subclass does not override abstract methods from super class, subclass has to be declared as abstract.
+
+Abstract Class:-
+If any one of the methods in the class is declared as abstract, class should be compulsorily declared as abstract.
+Class can even be declared as abstract without having any abstract method in it.
+Declaration of abstract class :
+public abstract class Emp extend Person
+Abstract classes can not be instantiated but it's reference can be created.
+e.g Empl e; //allowed to create reference
+Employee e = new Employee(); //compilation error
+Abstract classes are incomplete in some sense (because of abstract methods), which has to be completed by the child classes.
+Subclasses need to override all the abstract methods of its super class otherwise subclass even needs to be declared as abstract.
+
+Here :-I want declare one abstract method that is calSalary() for calulate actually sallary according to their profession.
+public abstract class Emp extends Person {
+	private int empid;//extra dm for EMp
+	protected float salary;
+
+	public Emp() {
+		super();
+	}
+
+	public Emp(String name, int dd, int mm, int yy, int empid, float salary) {
+		super(name, dd, mm, yy);
+		this.empid = empid;
+		this.salary = salary;
+	}
+
+	public void display()
+	{
+		//this.display();//infinite recursion
+		//but i want to call person display
+		super.display();
+		System.out.println("Empid :"+empid);
+		System.out.println("Salary :"+salary);
+	}
+	@Override
+	public String toString() {
+		return "Emp [empid=" + empid + ", salary=" + salary+"Person Details :"+super.toString() ;	
+	}
+	
+	//for abstract method
+	//class should be declared abstract
+	//we do not create object of abstract class
+	public abstract double calSalary();
+}
+After these all my subclasses like SalesManager , Programmer , Admin can extend this abstract class and implement abstract method according to their themself.
+
+Access Modifiers:-
+Image:-Access modifier theory
+Image:-Access modifier chart
+
+Final Keyword:-
+fully defined
+once assigned , cannot be changed.
+finaly keyword can be applied for class ,variable and method.
+finally variable is similar like constants:-
+final double PI = 3.142;
+	     PT = 3.142;//generate error 
+		//re-assignment is not allowed.
+
+Final Methods:-
+Ques:-What is the way to change the method.
+Overriding is the way to change the method.
+
+But, overriding of final methods is not allowed.
+So, what we do seen in these example:-
+
+public class A
+{
+	public void m1();
+	{
+		//concrete method
+	}
+	
+	public final void m2()
+	{
+		//concrete + final()
+	}
+	
+	public abstract void m3()//class should be abstract else error
+	{
+		//abstract()
+	}
+}
+
+public class B extends A
+{
+	public void m1();
+}
+Ques:-Is class B compilled
+No abstract() compulsorily implemented in class B
+ 
+public class B extends A
+{
+	public void m3();
+}
+Ques:-Is class B compilled
+Yes abstract() implemented in class B because.
+
+public abstract class B extends A
+{
+	public void m1();
+}
+Ques:-Is class B compilled
+No we cannot create object of abstract class.
+
+
+
+
+Chapter:-13
+Java Interface	
+
+What will be covered in this chapter:-
+Need of Interfaces.
+Interfaces defination
+Interfaces Implementation.
+Interface inheritance.
+Default Methods in interface.
+Nested interfaces.
+
+Inheritance in java:-
+In java inherit or acquired the properties of super class from their subclass is called as inheritance, using extends keyword.
+1.Defining Inheritance:-
+// Superclass
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+// Subclass inheriting from Animal
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+2.Access Modifiers and Inheritance:
+Inherited members are subject to the access modifiers. If a superclass member is public or protected, it is accessible in the subclass. If it's private, it's not accessible.
+
+3.Method Overriding:
+Subclasses can provide a specific implementation for a method defined in the superclass. This is known as method overriding. The method in the subclass must have the same signature (name and parameters) as the method in the superclass.
+Example: 
+class Animal {
+    void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+4.Using super:
+The super keyword in Java is used to access members of the superclass. It's particularly useful when you want to call the superclass constructor or access overridden methods.
+Example:
+class Animal {
+    void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound() {
+        super.makeSound(); // Calling superclass method
+        System.out.println("Dog is barking");
+    }
+}
+
+5.Single Inheritance:
+Java supports single inheritance, meaning a subclass can inherit from only one superclass. However, a superclass can have multiple subclasses.
+
+6.Constructor Inheritance:
+Constructors are not inherited in Java, but they are called implicitly when an instance of a subclass is created. The subclass constructor calls the constructor of its superclass using super().
+
+Image:-inheritance
+
+In case of java Multiple inheritance is not allowed.
+Java got an answer for these scenario , in form of interface, But , if there is such a requierement to my class inherit to two different entities. So we use Interfaces.
+What is Interface..?
+interface is like class
+but there are some restrications-
+	no instance data member.
+	constructor not as well.
+	data member by default static and final.
+	methods bydefault considered as abstract.
+
+
+Chapter:-14.
+Java Exceptional Handling
+
+What will be covered in this chapter:-
+What is exception
+Nature of exceptions
+What is exception handling
+Exception class hiearchy
+Exception types
+Common scenarios
+Using try-catch
+Use of finally.
+
+Chapter:-15.
+Java Exceptional Handling-II
+
+What will be covered in this chapter:-
+throw keyword
+Use defined exceptions
+Throws keyword
+Throws example
+Rethrowing exception
+Improved catch block
+Try with resources
+Advantages of exception handling
+
+Chapter:-16.
+Java IO
+
+What will be covered in this chapter:-
+What is stream
+IO Stream and its types
+Byte Streams
+Character Streams
+Standard - built-in streams
+Reading from console
+File streams
+File class
+Reading data from file
+Writing data to file
+
+Chapter:-17.
+Java IO-II
+
+What will be covered in this chapter:-
+Buffered stream
+Flushing buffered straems
+Serialization
+Object streams
+Use of serialization
+Example
+Desrialization
+Externalizable
+
+Chapter:-18.
+Java MultiThreading
+
+What will be covered in this chapter:-
+Need of Multithreading
+What is multithreading
+What is thread
+Thread life cycle
+Ways of creating threads
+Creating multiple threads
+Thread priorities
+Use of join
+Thread synchronization
+Interthread communication
+
+Chapter:-19.
+Java MultiThreading-II
+
+What will be covered in this chapter:-
+Thread priorities
+Use of join
+Example of join
+Need of Thread synchronization
+Synchronized code
+Interthread communication
+Methods for Interthread communication
+
+Chapter:-20.
+Reflection
+
+What will be covered in this chapter:-
+Introduction to Reflection.
+Class class
+Creating instance Dynamically
+Dynamic method invocation
+

@@ -1,0 +1,5 @@
+1. Create program and create object of HashMap and iterate through Entry interface and use entrySet method.
+
+2. Create program and create object of LinkedHashMap and iterate through Entry interface and use entrySet method.
+
+3. Create program and create object of TreeMap and iterate through Entry interface and use entrySet method.
