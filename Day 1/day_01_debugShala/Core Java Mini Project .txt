@@ -1,0 +1,17 @@
+1. Create Normal Java project 
+
+2. Create 3 Package under src
+	apps             (mainDemos)
+	office.staff    (base classes/ sub classes)
+	office.utility (super classes and interfaces)
+
+3. Create Date class and established relation with Person class (has-a relationship)  association relationship in office.utility pckg.
+
+4. create Employee class and extends from Person which is in office.utility.Person; and import that in employee class  in office.staff pckg.
+
+5. Create PersonDemo and EMpDemo and check their functionality is calling on right way or not .
+
+6. create EmpTypesDemo and implement polymorphism.
+
+ 
+
